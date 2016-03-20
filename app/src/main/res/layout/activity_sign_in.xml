@@ -24,10 +24,10 @@
             android:orientation="vertical" >
 
             <AutoCompleteTextView
-                android:id="@+id/textEmailLogin"
+                android:id="@+id/textLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_username"
+                android:hint="@string/prompt_login"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:singleLine="true" />
@@ -46,7 +46,7 @@
                 android:password="true" />
 
             <Button
-                style="?android:textAppearanceSmall"
+                style="?android:textAppearanceMedium"
                 android:id="@+id/buttonSignIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

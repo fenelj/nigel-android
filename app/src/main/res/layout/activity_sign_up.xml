@@ -7,13 +7,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="seniordesign.nigel.SignUpActivity"
-    android:id="@+id/signInActivity">
+    android:id="@+id/signInActivity" >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         >
+
         <ScrollView
             android:id="@+id/scrollViewLogin"
             android:layout_width="match_parent"
@@ -29,6 +30,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Account Creation"
+                    android:gravity="center_horizontal"
+                    android:textSize="@dimen/abc_text_size_large_material"
+                    android:layout_marginBottom="16dp"
+                    android:textStyle="bold" />
 
                 <AutoCompleteTextView
                     android:id="@+id/textFirstName"
@@ -53,6 +63,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_username"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/textEmailLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true" />

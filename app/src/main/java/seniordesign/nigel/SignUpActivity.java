@@ -24,6 +24,7 @@ public class SignUpActivity extends ActionBarActivity {
     private EditText firstnameView;
     private EditText lastnameView;
     private EditText usernameView;
+    private EditText emailView;
     private EditText phonenumberView;
     private EditText passwordView;
     private EditText passwordAgainView;
@@ -37,6 +38,7 @@ public class SignUpActivity extends ActionBarActivity {
         firstnameView = (EditText) findViewById(R.id.textFirstName);
         lastnameView = (EditText) findViewById(R.id.textLastName);
         usernameView = (EditText) findViewById(R.id.textUsernameLogin);
+        emailView = (EditText) findViewById(R.id.textEmailLogin);
         phonenumberView = (EditText) findViewById(R.id.textPhoneNumber);
         passwordView = (EditText) findViewById(R.id.textPasswordLogin);
         passwordAgainView = (EditText) findViewById(R.id.textPasswordVerify);
@@ -53,12 +55,19 @@ public class SignUpActivity extends ActionBarActivity {
                     validationError = true;
                     validationErrorMessage.append("enter your first & last name");
                 }
-                if (isEmpty(usernameView) && !isEmailValid(usernameView) ) {
+                if (isEmpty(usernameView)) {
                     if (validationError) {
                         validationErrorMessage.append(", and ");
                     }
                     validationError = true;
                     validationErrorMessage.append("enter a valid username");
+                }
+                if (isEmpty(emailView) && !isEmailValid(emailView)) {
+                    if (validationError) {
+                        validationErrorMessage.append(", and ");
+                    }
+                    validationError = true;
+                    validationErrorMessage.append("enter a valid email address");
                 }
                 if (isEmpty(passwordView)) {
                     if (validationError) {
@@ -96,10 +105,11 @@ public class SignUpActivity extends ActionBarActivity {
 
                 user.put("firstName", firstnameView.getText().toString());
                 user.put("lastName", lastnameView.getText().toString());
-                user.put("email", usernameView.getText().toString());
+                user.put("username", usernameView.getText().toString());
+                user.put("email", emailView.getText().toString());
 
-                if ( /*isNumberValid(phonenumberView) &&*/ !isEmpty(phonenumberView) ) {
-                    user.put("phoneNumber", phonenumberView.getText().toString());
+                if ( isNumberValid(phonenumberView) && !isEmpty(phonenumberView) ) {
+                    user.put("phoneNumber", Integer.parseInt(phonenumberView.getText().toString()) );
                 }
 
                 // Call the Parse signup method

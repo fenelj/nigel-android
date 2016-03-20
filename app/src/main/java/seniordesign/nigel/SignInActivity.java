@@ -26,12 +26,12 @@ public class SignInActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        usernameInput = (EditText) findViewById(R.id.textEmailLogin);
+        usernameInput = (EditText) findViewById(R.id.textLogin);
         passwordInput = (EditText) findViewById(R.id.textPasswordLogin);
 
         findViewById(R.id.buttonRegister).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
             }
         });
 
@@ -43,7 +43,7 @@ public class SignInActivity extends ActionBarActivity {
                         new StringBuilder("Please ");
                 if (isEmpty(usernameInput)) {
                     validationError = true;
-                    validationErrorMessage.append("enter a username");
+                    validationErrorMessage.append("enter a username or email address");
                 }
                 if (isEmpty(passwordInput)) {
                     if (validationError) {
@@ -91,10 +91,6 @@ public class SignInActivity extends ActionBarActivity {
     }
 
     private boolean isEmpty(EditText text) {
-        if (text.getText().toString().trim().length() > 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return !(text.getText().toString().trim().length() > 0);
     }
 }
